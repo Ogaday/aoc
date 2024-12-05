@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "aoc"
+version = "0.1.0"
+description = "Advent of Code 2024"
+authors = ["Ogaday Willers Moore <W.Ogaday@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.30.0"
+ruff = "^0.8.2"
+mypy = "^1.13.0"
+toml-sort = "^0.24.2"
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

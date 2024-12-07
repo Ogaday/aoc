@@ -19,6 +19,9 @@ pytest = "^8.3.4"
 ruff = "^0.8.2"
 toml-sort = "^0.24.2"
 
+[tool.poetry.scripts]
+aoc = 'aoc.__main__:cli'
+
 [tool.tomlsort]
 ignore_case = true
 sort_table_keys = true

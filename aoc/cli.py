@@ -47,7 +47,8 @@ class CLI:
             return
 
         if parsed.input_path is None:
-            parsed.input_path = input_path(day=parsed.day, directory=parsed.input_directory)
+            with input_path(day=parsed.day, directory=parsed.input_directory) as path:
+                parsed.input_path = path
         
         print(solve(day=parsed.day, part=parsed.part, input_path=parsed.input_path))
         return

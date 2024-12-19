@@ -2,32 +2,12 @@ from dataclasses import dataclass
 from itertools import cycle
 from typing import Any
 
-
-@dataclass(frozen=True, eq=True)
-class Vector:
-    x: int
-    y: int
-    def __add__(self, other: Any) -> "Vector":
-        if isinstance(other, Vector):
-            return Vector(self.x + other.x, self.y + other.y)
-        else:
-            raise ValueError(f"Type {type(other)} is incompatible with Vector")
-        
-def make_map(rows: list[str]) -> set:
-    obstructions = set()
-    for i, row in enumerate(rows):
-        for j, element in enumerate(row):
-            if element == "^":
-                current = Vector(j, i)
-            elif element == "#":
-                obstructions.add(Vector(j, i))
-    return current, obstructions
-
-directions = cycle((Vector(0, -1), Vector(1, 0), Vector(0, 1), Vector(-1, 0)))
+from aoc.solutions.day_06.common import make_directions, make_map
 
 def solution(path):
     with open(path) as f:
         rows = f.readlines()
+    directions = make_directions()
     current, obstructions = make_map(rows)
     x_min, x_max = 0, len(rows[0])
     y_min, y_max = 0, len(rows)

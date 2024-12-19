@@ -16,12 +16,12 @@ class Vector:
         
 def make_map(rows: list[str]) -> set:
     obstructions = set()
-    for i, row in enumerate(rows):
-        for j, element in enumerate(row):
+    for y, row in enumerate(rows):
+        for x, element in enumerate(row):
             if element == "^":
-                current = Vector(j, i)
+                current = Vector(x, y)
             elif element == "#":
-                obstructions.add(Vector(j, i))
+                obstructions.add(Vector(x, y))
     return current, obstructions
 
 def make_directions():

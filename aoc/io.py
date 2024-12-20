@@ -39,12 +39,16 @@ def example_path(day: int) -> Generator[Path, None, None]:
     --------
     This will return a path, but does not guarantee that the path exists.
     """
-    with importlib.resources.path(f"aoc.examples", day_name(day)).with_suffix(".txt") as path:
+    with importlib.resources.path("aoc.examples", day_name(day)).with_suffix(
+        ".txt"
+    ) as path:
         yield path
 
 
 @contextmanager
-def input_path(day: int, directory: Path = DEFAULT_INPUT_DIR) -> Generator[Path, None, None]:
+def input_path(
+    day: int, directory: Path = DEFAULT_INPUT_DIR
+) -> Generator[Path, None, None]:
     """
     Examples
     --------

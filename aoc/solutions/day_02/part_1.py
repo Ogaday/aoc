@@ -1,5 +1,6 @@
 from itertools import pairwise
 
+
 def safe(report: list[int]) -> bool:
     ascending = False
     descending = False

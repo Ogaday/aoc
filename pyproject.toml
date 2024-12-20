@@ -1,3 +1,7 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
 [tool.poetry]
 name = "aoc"
 version = "0.1.0"
@@ -8,14 +12,19 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 
-
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.30.0"
-ruff = "^0.8.2"
 mypy = "^1.13.0"
-toml-sort = "^0.24.2"
 pytest = "^8.3.4"
+ruff = "^0.8.2"
+toml-sort = "^0.24.2"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.tomlsort]
+ignore_case = true
+sort_table_keys = true
+
+[tool.tomlsort.overrides."tool.poetry"]
+table_keys = false
+
+[tool.tomlsort.overrides."tool.poetry.dependencies"]
+first = ["python"]

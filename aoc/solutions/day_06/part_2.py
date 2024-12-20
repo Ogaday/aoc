@@ -1,13 +1,12 @@
-from dataclasses import dataclass
-from itertools import cycle
-from typing import Any
-
 from aoc.solutions.day_06.common import make_directions, make_map
+
 
 class CycleError(Exception):
     """Raise when a cycle is detected."""
+
     def __init__(self, positions):
         self.positions = positions
+
 
 def get_positions(current, obstructions, directions=None):
     directions = directions or make_directions()
@@ -16,7 +15,7 @@ def get_positions(current, obstructions, directions=None):
     positions = set()
     seen = set()
     direction = next(directions)
-    
+
     while (x_min <= current.x < x_max) and (y_min <= current.y < y_max):
         if (current, direction) in seen:
             raise CycleError(positions)
@@ -42,6 +41,3 @@ def solution(path):
         except CycleError:
             new_obstructions.add(point)
     return len(new_obstructions)
-
-
-

@@ -1,10 +1,11 @@
 def check(update, rules):
     # Check every pair and ensure no rules are broken
     for i, left in enumerate(update[:-1]):
-        for right in update[i + 1:]:
+        for right in update[i + 1 :]:
             if (right, left) in rules:
                 return False
     return True
+
 
 def solution(path):
     with open(path) as f:

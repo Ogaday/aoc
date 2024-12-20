@@ -1,10 +1,9 @@
 import re
 
-
 prog = re.compile(r"mul\((\d{1,3}),(\d{1,3})\)")
 
 
-def clean(memory: str) -> list[list[int]]:
+def clean(memory: str) -> list[tuple[int, ...]]:
     """
     Examples
     --------

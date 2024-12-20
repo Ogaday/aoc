@@ -1,6 +1,5 @@
 import re
 
-
 prog = re.compile(r"mul\((\d{1,3}),(\d{1,3})\)|(don't\(\))|(do\(\))")
 
 

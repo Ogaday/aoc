@@ -1,6 +1,7 @@
 from itertools import pairwise
 from typing import Generator
 
+
 def safe(report: list[int]) -> bool:
     ascending = False
     descending = False
@@ -28,7 +29,7 @@ def subsets(report: list[int]) -> Generator[list[int], None, None]:
     [0, 1, 2, 3]
     """
     for i in range(len(report)):
-        yield report[:i] + report[i+1:]
+        yield report[:i] + report[i + 1 :]
 
 
 def safe_with_backup(report: list[int]) -> bool:
@@ -40,13 +41,10 @@ def safe_with_backup(report: list[int]) -> bool:
     return False
 
 
-
-
 def solution(input_path):
     with open(input_path) as f:
         reports = []
         for row in f.readlines():
             reports.append(list(map(int, row.split())))
-
 
     print(sum(safe_with_backup(report) for report in reports))

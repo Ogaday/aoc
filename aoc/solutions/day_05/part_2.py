@@ -1,7 +1,7 @@
 def check(update, rules):
     # Check every pair and ensure no rules are broken
     for i, left in enumerate(update[:-1]):
-        for right in update[i + 1:]:
+        for right in update[i + 1 :]:
             if (right, left) in rules:
                 return False
     return True
@@ -12,7 +12,7 @@ def fix(update: list[int], rules):
     pos = 0
     while pos < len(update):
         left = update[pos]
-        for j, right in enumerate(update[pos + 1:]):
+        for j, right in enumerate(update[pos + 1 :]):
             i = pos + j + 1
             if (right, left) in rules:
                 update.insert(pos, update.pop(i))
@@ -21,7 +21,7 @@ def fix(update: list[int], rules):
             pos += 1
 
     return update
-                
+
 
 def solution(path):
     with open(path) as f:

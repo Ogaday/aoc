@@ -1,8 +1,5 @@
-from dataclasses import dataclass
-from itertools import cycle
-from typing import Any
-
 from aoc.solutions.day_06.common import make_directions, make_map
+
 
 def get_path(current, obstructions, directions=None):
     directions = directions or make_directions()
@@ -19,10 +16,10 @@ def get_path(current, obstructions, directions=None):
             current = new
     return positions
 
+
 def solution(path):
     with open(path) as f:
         rows = f.readlines()
     current, obstructions = make_map(rows)
     positions = get_path(current, obstructions)
     return len(positions)
-

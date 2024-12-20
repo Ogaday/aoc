@@ -16,5 +16,5 @@ sum(diffs)
 sims = []
 for left in lefts:
     sims.append(left * rights.count(left))
-    
+
 print(sum(sims))
